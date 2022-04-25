@@ -1,8 +1,7 @@
 import Login
 import Register
 
-# met deux lien 'Login' et 'Register' dans le Gui et utiliser ce fonction ou un autre comme celui'ci
-
+# Mettez deux liens "Login" et "Register" dans l'interface graphique et utilisez cette fonction ou une autre fonction similaire.
 user = int(input('Enter 0 pour inscrire or 1 pour connecter : '))
 if user == 0:
     name = input('Entrer Votre Nom : ')
@@ -11,4 +10,4 @@ if user == 0:
 else:
     name = input('Entrer Votre Nom : ')
     password = input('Entrer Votre password : ')
-    Login.Connexion(name, password)
+    Login.Connexion(name, password) 
