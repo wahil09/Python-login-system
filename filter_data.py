@@ -1,5 +1,32 @@
 from datetime import date
-data_base = {'oussama': 'Oussama.09', 'oweiss': 'Oweiss.09'}
+import json
+data_base = {}
+
+def user_existe(username):
+    with open('data.json', 'r') as r:
+        data_base = json.load(r)
+        r.close()
+    user_existe = False
+    self_user = ""
+
+    for user in data_base:
+        if username in data_base[user]['name']:
+            user_existe = True
+            self_user = user
+    if user_existe:
+        return [user_existe, data_base[self_user]]
+    else:
+        return [user_existe]
+
+def add_user_for_database(number_of_user, data_user):
+    with open('data.json', "r") as r:
+        update_data_base = json.load(r)
+        update_data_base[number_of_user] = data_user
+        r.close()
+
+    with open('data.json', "w") as w:
+        json.dump(update_data_base, w)
+        r.close()
 
 def test(username, password, log_or_reg):
     # Condition pour créer uhn nouvelle utilisateur
@@ -15,7 +42,7 @@ def test(username, password, log_or_reg):
                     # si il y'a au moins un caractère spiciaux dans le password
                     if if_x_in_list(password, 'caract'):
                         if log_or_reg == 'register':
-                            if username in data_base:
+                            if user_existe(username)[0]:
                                 cond["bol"] = False
                                 cond['message'] = 'username déja utiliser, il faut changer le nom'
 

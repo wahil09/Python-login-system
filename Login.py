@@ -8,8 +8,8 @@ def Choix():
 def Connexion(username, password):
     cond = test(username, password, 'connexion')
     if cond['bol'] == True:
-        if username in data_base:
-            if data_base[username] == password:
+        if user_existe(username)[0]:
+            if user_existe(username)[1]['password'] == password:
                 print(f'{username} bienvenue dans votre compte')
             else:
                 print("Mote de pass incorrect !")
