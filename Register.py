@@ -1,10 +1,10 @@
 from filter_data import *
+
 class Register:
-    number_of_user = 2
+    number_of_user = get_numbers_of_users()
     def __init__(self, username: str, password: str):
         self.__username = username
         self.__password = password
-        self.numbers_of_user = 2
         self.AddUser()
 
     def AddUser(self):
@@ -12,7 +12,6 @@ class Register:
         message = test(self.__username, self.__password, 'register')['message']
         if cond:
             add_user_for_database(f"user{Register.number_of_user}", {"name": self.__username, "password": self.__password})
-            Register.number_of_user += 1
             print(message)
         else:
             print(message)

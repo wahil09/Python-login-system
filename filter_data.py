@@ -28,6 +28,12 @@ def add_user_for_database(number_of_user, data_user):
         json.dump(update_data_base, w)
         r.close()
 
+def get_numbers_of_users():
+    with open("data.json", 'r') as r:
+        data = json.load(r)
+        r.close()
+        return len(data)
+
 def test(username, password, log_or_reg):
     # Condition pour créer uhn nouvelle utilisateur
     date1 = date.today()
