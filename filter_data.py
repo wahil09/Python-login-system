@@ -1,6 +1,8 @@
-from datetime import date
+from datetime import *
 import json
 data_base = {}
+date_register = ''
+
 
 def user_existe(username):
     with open('data.json', 'r') as r:
@@ -36,8 +38,8 @@ def get_numbers_of_users():
 
 def test(username, password, log_or_reg):
     # Condition pour créer uhn nouvelle utilisateur
-    date1 = date.today()
-    cond = {'bol' :True, 'message': f"information entrer valide, {username} vous etez inscrit le {date1}"}
+    date_register = datetime.now()
+    cond = {'bol' :True, 'message': f"information entrer valide, {username} vous etez inscrit le {date_register}"}
 
     if 30 >= len(username) >= 3:
         if 30 >= len(password) >= 6:

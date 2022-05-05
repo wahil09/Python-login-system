@@ -11,7 +11,8 @@ class Register:
         cond = test(self.__username, self.__password, 'register')['bol']
         message = test(self.__username, self.__password, 'register')['message']
         if cond:
-            add_user_for_database(f"user{Register.number_of_user}", {"name": self.__username, "password": self.__password})
+            date_register = datetime.now()
+            add_user_for_database(f"user{Register.number_of_user}", {"name": self.__username, "password": self.__password, 'time': str(date_register)})
             print(message)
         else:
             print(message)
@@ -30,7 +31,4 @@ class Register:
 # function pour créer un nouvelle utilisateur
 def CreerUser(name, password):
     Register(name, password)
-
-
-
 
